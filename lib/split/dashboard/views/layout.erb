@@ -10,17 +10,16 @@
 
 </head>
 <body>
-  <div class="header">
-    <h1>Split Dashboard</h1>
-    <p class="environment"><%= @current_env %></p>
-  </div>
-
-  <div id="main">
-    <%= yield %>
-  </div>
-
-  <div id="footer">
-    <p>Powered by <a href="http://github.com/splitrb/split">Split</a> v<%=Split::VERSION %></p>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h1>Split Dashboard</h1>
+        <p><small><%= @current_env %></small></p>
+      </div>
+    </div>
+    <div id="main">
+      <%= yield %>
+    </div>
   </div>
 </body>
 </html>
