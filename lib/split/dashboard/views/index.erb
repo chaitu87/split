@@ -1,47 +1,33 @@
 <% if @experiments.any? %>
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-4">
       <img src="http://assets.theinnerhour.com/clogo.png" style="margin-top: 10px; width: 150px;">
     </div>
-    <div class="col-md-6 text-right">
+    <div class="col-md-4 text-right">
       <p style="margin:0;padding:0;">Total experiments <h2 style="margin:0;padding:0;"><%= @experiments.length %></h2></p>
+    </div>
+    <div class="col-md-4 text-right">
+      <br>
+      <input id="filter" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
     </div>
   </div>
   <div class="row">
-    <div class="col-md-12">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Recommended <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Retargeting</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Programmes
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Sleep</a>
-                <a class="dropdown-item" href="#">Depression</a>
-                <a class="dropdown-item" href="#">Sleep</a>
-                <a class="dropdown-item" href="#">Stress</a>
-                <a class="dropdown-item" href="#">Anger</a>
-                <a class="dropdown-item" href="#">Happiness</a>
-              </div>
-            </li>
-          </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
-        </div>
-      </nav>
+    <div class="col-md-6">
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-dark" id="get_recommended">Recommended</button>
+        <button type="button" class="btn btn-secondary" id="get_retargeted">Retargeted</button>
+        <button type="button" class="btn btn-warning" id="get_programmes">Programmes</button>
+      </div>
+    </div>
+    <div class="col-md-6 text-right">
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-outline-secondary" id="get_sleep">Sleep</button>
+        <button type="button" class="btn btn-outline-secondary" id="get_stress">Stress</button>
+        <button type="button" class="btn btn-outline-secondary" id="get_depression">Depression</button>
+        <button type="button" class="btn btn-outline-secondary" id="get_anger">Anger</button>
+        <button type="button" class="btn btn-outline-secondary" id="get_worry">Worry</button>
+        <button type="button" class="btn btn-outline-secondary" id="get_happiness">Happiness</button>
+      </div>
     </div>
   </div>
   <br>
