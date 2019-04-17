@@ -1,16 +1,57 @@
 <% if @experiments.any? %>
   <div class="row">
-    <div class="col-md-12">
-      <img src="http://assets.theinnerhour.com/clogo.png" width="150px">
-      <p class="intro">The list below contains all the registered experiments along with the number of test participants, completed and conversion rate currently in the system.</p>
+    <div class="col-md-6">
+      <img src="http://assets.theinnerhour.com/clogo.png" style="margin-top: 10px; width: 150px;">
+    </div>
+    <div class="col-md-6 text-right">
+      <p style="margin:0;padding:0;">Total experiments <h2 style="margin:0;padding:0;"><%= @experiments.length %></h2></p>
     </div>
   </div>
-  <% paginated(@experiments).each do |experiment| %>
+  <div class="row">
+    <div class="col-md-12">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Recommended <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Retargeting</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Programmes
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Sleep</a>
+                <a class="dropdown-item" href="#">Depression</a>
+                <a class="dropdown-item" href="#">Sleep</a>
+                <a class="dropdown-item" href="#">Stress</a>
+                <a class="dropdown-item" href="#">Anger</a>
+                <a class="dropdown-item" href="#">Happiness</a>
+              </div>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <br>
+  <% @experiments.each_with_index do |experiment, index| %>
     <% if experiment.goals.empty? %>
       <%= erb :_experiment, :locals => {:goal => nil, :experiment => experiment} %>
     <% else %>
       <div class="row">
         <div class="col-12">
+          <p><label>ITEM: <%= index %></label></p>
           <%= erb :_experiment_with_goal_header, :locals => {:experiment => experiment} %>
           <% experiment.goals.each do |g| %>
             <%= erb :_experiment, :locals => {:goal => g, :experiment => experiment} %>
@@ -19,13 +60,6 @@
       </div>
     <% end %>
   <% end %>
-  <div class="row">
-    <div class="col-md-12">
-      <div class="pagination">
-        <%= pagination(@experiments) %>
-      </div>
-    </div>
-  </div>
 <% else %>
   <div class="row">
     <div class="col-12">

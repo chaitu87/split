@@ -1,18 +1,18 @@
 <% if experiment.has_winner? %>
-  <form action="<%= url "/reopen?experiment=#{experiment.name}" %>" method='post' onclick="return confirmReopen()">
-    <input type="submit" value="Reopen Experiment">
+  <form action="<%= url "/reopen?experiment=#{experiment.name}" %>" method='post' onclick="return confirmReopen()" style="display: inline-block;">
+    <input type="submit" value="Reopen Experiment" class="btn btn-sm btn-success">
   </form>
 <% end %>
 <% if experiment.start_time %>
-  <form action="<%= url "/reset?experiment=#{experiment.name}" %>" method='post' onclick="return confirmReset()">
-    <input type="submit" value="Reset Data">
+  <form action="<%= url "/reset?experiment=#{experiment.name}" %>" method='post' onclick="return confirmReset()" style="display: inline-block;">
+    <input type="submit" value="Reset Data" class="btn btn-sm btn-danger">
   </form>
 <% else%>
-  <form action="<%= url "/start?experiment=#{experiment.name}" %>" method='post'>
-    <input type="submit" value="Start">
+  <form action="<%= url "/start?experiment=#{experiment.name}" %>" method='post' style="display: inline-block;">
+    <input type="submit" value="Start" class="btn btn-sm btn-primary">
   </form>
 <% end %>
-<form action="<%= url "/experiment?experiment=#{experiment.name}" %>" method='post' onclick="return confirmDelete()">
-  <input type="hidden" name="_method" value="delete"/>
-  <input type="submit" value="Delete" class="red">
+<form action="<%= url "/experiment?experiment=#{experiment.name}" %>" method='post' onclick="return confirmDelete()" style="display: inline-block;">
+  <input type="hidden" name="_method" value="delete" class="btn btn-sm btn-warning"/>
+  <input type="submit" value="Delete" class="red btn btn-sm btn-danger">
 </form>

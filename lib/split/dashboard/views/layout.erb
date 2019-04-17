@@ -3,20 +3,16 @@
 <head>
 <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
 <link href="<%= url 'bootstrap.min.css' %>" media="screen" rel="stylesheet" type="text/css">
-<script type="text/javascript" src='<%= url 'dashboard.js' %>'></script>
+<link href="<%= url 'style.css' %>" media="screen" rel="stylesheet" type="text/css">
 <script type="text/javascript" src='<%= url 'jquery-1.11.1.min.js' %>'></script>
+<script type="text/javascript" src='<%= url 'bootstrap.min.js' %>'></script>
+<script type="text/javascript" src='<%= url 'dashboard.js' %>'></script>
 <script type="text/javascript" src='<%= url 'dashboard-filtering.js' %>'></script>
-<title>Split</title>
+<title>InnerHour Notification Statistics - <%= @current_env %></title>
 
 </head>
 <body>
   <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <h1>Split Dashboard</h1>
-        <p><small><%= @current_env %></small></p>
-      </div>
-    </div>
     <div id="main">
       <%= yield %>
     </div>
